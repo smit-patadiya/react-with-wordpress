@@ -1,5 +1,5 @@
 const clientConfig = {
-	siteUrl: 'http://localhost:8888/wordpress'
+	siteUrl: 'https://test.frontity.io'
 };
 
 export default clientConfig;
