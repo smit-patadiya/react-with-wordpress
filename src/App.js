@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 //import { Switch, Route } from "react-router";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
@@ -12,12 +12,10 @@ class App extends React.Component {
 	render() {
 		return (
       <Router>
-        <div>
-          <Route exact component={Home} path="/" />
-          <Route component={Login} path="/login" />
-          <Route component={Dashboard} path="/dashboard/:userName" />
-          <Route exact component={SinglePost} path="/post/:id" />
-        </div>
+        <Route exact component={Home} path="/" />
+        <Route component={Login} path="/login" />
+        <Route component={Dashboard} path="/dashboard/:userName" />
+        <Route exact component={SinglePost} path="/post/:id" />
       </Router>
     );
 	}
