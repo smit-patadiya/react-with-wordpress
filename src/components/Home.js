@@ -4,7 +4,8 @@ import axios from 'axios';
 import Loader from "../loader.gif";
 import renderHTML from 'react-render-html';
 import Moment from 'react-moment';
-import { Link } from '@reach/router';
+//import { Link } from '@reach/router';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import clientConfig from '../client-config';
 
 class Home extends React.Component {

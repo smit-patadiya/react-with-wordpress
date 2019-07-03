@@ -11,7 +11,7 @@ class SinglePost extends React.Component {
 
 	constructor( props ) {
 		super( props );
-
+		
 		this.state = {
 			loading : false,
 			post: {},
@@ -26,18 +26,24 @@ class SinglePost extends React.Component {
 	componentDidMount() {
 		const wordPressSiteURL = clientConfig.siteUrl;
 		console.warn( this.props.id );
-
+		const postId = this.props.match.params.id;
 		this.setState( { loading: true }, () => {
-			axios.get( `${wordPressSiteURL}/wp-json/wp/v2/posts/${this.props.id}` )
-				.then( res => {
-					console.warn( res.data );
-					if ( Object.keys( res.data ).length ) {
-						this.setState( { loading: false, post: res.data } );
-					} else {
-						this.setState( { loading: false, error: 'No Posts Found' } );
-					}
-				} )
-				.catch( err => this.setState( { loading: false, error: err.response.data.message } ) );
+			axios
+        .get(`${wordPressSiteURL}/wp-json/wp/v2/posts/${postId}`)
+        .then(res => {
+          console.warn(res.data);
+          if (Object.keys(res.data).length) {
+            this.setState({ loading: false, post: res.data });
+          } else {
+            this.setState({ loading: false, error: "No Posts Found" });
+          }
+        })
+        .catch(err =>
+          this.setState({
+            loading: false,
+            error: err.response.data.message
+          })
+        );
 		} )
 	}
 

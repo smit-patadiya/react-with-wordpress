@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.css';
-import { Router } from "@reach/router";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+//import { Switch, Route } from "react-router";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import Home from "./components/Home";
@@ -10,13 +11,15 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<Router>
-				<Home path="/"/>
-				<Login path="/login"/>
-				<Dashboard path="/dashboard/:userName"/>
-				<SinglePost path="/post/:id"/>
-			</Router>
-		);
+      <Router>
+        <div>
+          <Route exact component={Home} path="/" />
+          <Route component={Login} path="/login" />
+          <Route component={Dashboard} path="/dashboard/:userName" />
+          <Route exact component={SinglePost} path="/post/:id" />
+        </div>
+      </Router>
+    );
 	}
 }
 

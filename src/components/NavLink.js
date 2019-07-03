@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from "@reach/router";
+//import { Link } from "@reach/router";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 /**
  * Reach Routers gives us access to a function called getProps.
